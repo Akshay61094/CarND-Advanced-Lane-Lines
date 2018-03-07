@@ -61,7 +61,29 @@ Once I have calibrated the camera I can utilize the calibration matrix (mtx) and
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+I have used the following Gradients :
+
+Sobel X Gradient with threshold of (20, 100) and kernel = 21
+
+Sobel Y Gradient with threshold of (20, 100) and kernel = 9
+
+Sobel Magnitude Gradient with threshold of (100,190) and kernel = 9
+
+Sobel Direction Gradient with threshold of (0.7,1.3) and kernel = 19
+
+Combined Gradient Threshold using either X and Y Gradient together along with either Magnitude or direction Gradient
+
+Also Following Color transforms were done using HLS image type :
+
+Threshold of (100,255) was applies on the S channel of HLS image so that it could detect things with high saturation usually lane lines.
+
+Threshold of (120,255) was applied on the light channel of HLS image so that edges due to shadows could be avoided.
+
+Both of the Channels were then combined
+
+Finally Gradient and Color Thresholds were combined using or condition and I was able to plot lane line clearly in most of the cases.
+
+Below is an example of the thresholded image :
 
 ![alt text][image3]
 
