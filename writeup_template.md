@@ -25,7 +25,8 @@ The goals / steps of this project are the following:
 [image4]: ./ThresholdImage.JPG "Color and Gradient Threshold"
 [image5]: ./nottransformed.JPG "Without perspective transform"
 [image6]: ./transformed.JPG "With perspective transform"
-[image7]: ./final_image.JPG "Final Marked Image"
+[image7]: ./windowsearch.JPG "Window Search Visualization"
+[image8]: ./final_image.JPG "Final Marked Image"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -127,7 +128,7 @@ For Video pipeline for the first frame `fitpolyfirst()` will be called after tha
 
 Below is an output of the visualization of window search :
 
-![alt text][image5]
+![alt text][image7]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
@@ -144,7 +145,7 @@ I have Calculated the Vehicle center by taking a difference between the image ce
 
 After implementing the pipeline in cell no. 6 which was made specifically for testing the test images it was found that the lane lines were detected clearly. Below is an example of the image with lane line area marked :
 
-![alt text][image7]
+![alt text][image8]
 
 ---
 
