@@ -27,7 +27,6 @@ The goals / steps of this project are the following:
 [image6]: ./transformed.JPG "With perspective transform"
 [image7]: ./windowsearch.JPG "Window Search Visualization"
 [image8]: ./final_image.JPG "Final Marked Image"
-[video1]: https://youtu.be/VPmTTSWx6Uo "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -140,7 +139,7 @@ right_curverad = ((1 + (2*right_fit[0]*y_eval + right_fit[1])**2)**1.5) / np.abs
 
 The above code implements the Formula for finding radius of curvature mentioned in the classroom.
 
-I have Calculated the Vehicle center by taking a difference between the image center and the center of the two lane dtected. The code is available in the video pipeline function `processimage()`.
+I have Calculated the Vehicle center by taking a difference between the image center and the center of the two lane dtected. The code is available in the video pipeline function `process_image()`.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
