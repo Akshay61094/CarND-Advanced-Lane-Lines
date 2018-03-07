@@ -19,14 +19,14 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./orig_chess.JPG "Original Chess"
-[image2]: ./cal_chess.JPG "Calibrated Chess"
-[image3]: ./undistorted.JPG "Undistorted"
-[image4]: ./ThresholdImage.JPG "Color and Gradient Threshold"
-[image5]: ./nottransformed.JPG "Without perspective transform"
-[image6]: ./transformed.JPG "With perspective transform"
-[image7]: ./windowsearch.JPG "Window Search Visualization"
-[image8]: ./final_image.JPG "Final Marked Image"
+[image1]: ./output_images/orig_chess.JPG "Original Chess"
+[image2]: ./output_images/cal_chess.JPG "Calibrated Chess"
+[image3]: ./output_images/undistorted.JPG "Undistorted"
+[image4]: ./output_images/ThresholdImage.JPG "Color and Gradient Threshold"
+[image5]: ./output_images/nottransformed.JPG "Without perspective transform"
+[image6]: ./output_images/transformed.JPG "With perspective transform"
+[image7]: ./output_images/windowsearch.JPG "Window Search Visualization"
+[image8]: ./output_images/final_image.JPG "Final Marked Image"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
