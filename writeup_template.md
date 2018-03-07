@@ -22,9 +22,10 @@ The goals / steps of this project are the following:
 [image1]: ./orig_chess.JPG "Original Chess"
 [image2]: ./cal_chess.JPG "Calibrated Chess"
 [image3]: ./undistorted.JPG "Undistorted"
-[image4]: ./nottransformed.JPG "Without perspective transform"
-[image5]: ./transformed.JPG "Wit perspective transform
-[image6]: ./ThresholdImage.JPG "Color and Gradient Threshold"
+[image4]: ./ThresholdImage.JPG "Color and Gradient Threshold"
+[image5]: ./nottransformed.JPG "Without perspective transform"
+[image6]: ./transformed.JPG "Wit perspective transform"
+
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
