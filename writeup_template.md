@@ -24,7 +24,7 @@ The goals / steps of this project are the following:
 [image3]: ./undistorted.JPG "Undistorted"
 [image4]: ./nottransformed.JPG "Without perspective transform"
 [image5]: ./transformed.JPG "Wit perspective transform
-[image6]: ./ThresholdImage.JPG. "Color and Gradient Threshold"
+[image6]: ./ThresholdImage.JPG "Color and Gradient Threshold"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
