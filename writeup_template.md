@@ -27,7 +27,7 @@ The goals / steps of this project are the following:
 [image6]: ./transformed.JPG "With perspective transform"
 [image7]: ./windowsearch.JPG "Window Search Visualization"
 [image8]: ./final_image.JPG "Final Marked Image"
-[video1]: ./project_video.mp4 "Video"
+[video1]: https://youtu.be/VPmTTSWx6Uo "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
 
@@ -135,6 +135,7 @@ Below is an output of the visualization of window search :
 I have calculated the radius of curvature in both `fitpolyfirst()` and `fitpoly()` and returned the curvatures along with the polynomial fit. For calculating Radius of curvature following code was written :
 
 left_curverad = ((1 + (2*left_fit[0]*y_eval + left_fit[1])**2)**1.5) / np.absolute(2*left_fit[0])
+
 right_curverad = ((1 + (2*right_fit[0]*y_eval + right_fit[1])**2)**1.5) / np.absolute(2*right_fit[0])
 
 The above code implements the Formula for finding radius of curvature mentioned in the classroom.
@@ -153,7 +154,8 @@ After implementing the pipeline in cell no. 6 which was made specifically for te
 
 #### 1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (wobbly lines are ok but no catastrophic failures that would cause the car to drive off the road!).
 
-Here's a [link to my video result](./project_video.mp4)
+The Code for pipeline implemented for video is available in cell no. 10 in function process_image() . It does all the thing required for identifying lane lines and finally returns a image with marked lane area.
+Here's a [link to my video result](https://youtu.be/VPmTTSWx6Uo)
 
 ---
 
@@ -161,4 +163,4 @@ Here's a [link to my video result](./project_video.mp4)
 
 #### 1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-Here I'll talk about the approach I took, what techniques I used, what worked and why, where the pipeline might fail and how I might improve it if I were going to pursue this project further.  
+The pipeline is likely to fail where the video is much more challenging like more shadows. We can fetch yellow lines while thresholding images for such case. This improvement was left for a future task for now.
