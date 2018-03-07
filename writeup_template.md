@@ -22,9 +22,10 @@ The goals / steps of this project are the following:
 [image1]: ./orig_chess.JPG "Original Chess"
 [image2]: ./cal_chess.JPG "Calibrated Chess"
 [image3]: ./undistorted.JPG "Undistorted"
-[image4]: ./nottransformed.JPG "Without perspective transform"
-[image5]: ./transformed.JPG "Wit perspective transform
-[image6]: ./ThresholdImage.JPG. "Color and Gradient Threshold"
+[image4]: ./ThresholdImage.JPG "Color and Gradient Threshold"
+[image5]: ./nottransformed.JPG "Without perspective transform"
+[image6]: ./transformed.JPG "With perspective transform"
+[image7]: ./final_image.JPG "Final Marked Image"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -86,7 +87,7 @@ Finally Gradient and Color Thresholds were combined using or condition and I was
 
 Below is an example of the thresholded image :
 
-![alt text][image6]
+![alt text][image4]
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
@@ -116,24 +117,34 @@ This resulted in the following source and destination points:
 
 I verified that my perspective transform was working as expected by drawing the `src` and `dst` points onto a test image and its warped counterpart to verify that the lines appear parallel in the warped image.
 
-![alt text][image4]
 ![alt text][image5]
+![alt text][image6]
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-Then I did some other stuff and fit my lane lines with a 2nd order polynomial kinda like this:
+After I have got the perspective transform then I used window search algorithm to identify lane line pixels and fit a polynomial of two degree to it the first time. The code is available in cell no. 5 represented  by function `fitpolyfirst()`. It takes the perspectively transformed images as a parameter and return the polynomials of two degree that fit left and right lane. Along with this the function also returns the radius of curvature.
+For Video pipeline for the first frame `fitpolyfirst()` will be called after that once we have polynomial fit we dont need to do window search , we just have to search for lines based on the previous polynomial fit adjusting to margin of 100. For doing this we have another function `fitpoly()`.
+
+Below is an output of the visualization of window search :
 
 ![alt text][image5]
 
 #### 5. Describe how (and identify where in your code) you calculated the radius of curvature of the lane and the position of the vehicle with respect to center.
 
-I did this in lines # through # in my code in `my_other_file.py`
+I have calculated the radius of curvature in both `fitpolyfirst()` and `fitpoly()` and returned the curvatures along with the polynomial fit. For calculating Radius of curvature following code was written :
+
+left_curverad = ((1 + (2*left_fit[0]*y_eval + left_fit[1])**2)**1.5) / np.absolute(2*left_fit[0])
+right_curverad = ((1 + (2*right_fit[0]*y_eval + right_fit[1])**2)**1.5) / np.absolute(2*right_fit[0])
+
+The above code implements the Formula for finding radius of curvature mentioned in the classroom.
+
+I have Calculated the Vehicle center by taking a difference between the image center and the center of the two lane dtected. The code is available in the video pipeline function `processimage()`.
 
 #### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
 
-I implemented this step in lines # through # in my code in `yet_another_file.py` in the function `map_lane()`.  Here is an example of my result on a test image:
+After implementing the pipeline in cell no. 6 which was made specifically for testing the test images it was found that the lane lines were detected clearly. Below is an example of the image with lane line area marked :
 
-![alt text][image6]
+![alt text][image7]
 
 ---
 
