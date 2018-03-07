@@ -45,7 +45,7 @@ You're reading it!
 
 The code for this step is contained in the Third code cell of the IPython notebook located in "advanlane.ipynb"
 
-I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image.  Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image.  `imagepoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection. In most of the calibrating images their 48 corners excluding the outer ones so therefore we are looking for (9X6) corners which will stored in imagepoints array.
+I start by preparing "object points", which will be the (x, y, z) coordinates of the chessboard corners in the world. Here I am assuming the chessboard is fixed on the (x, y) plane at z=0, such that the object points are the same for each calibration image.  Thus, `objp` is just a replicated array of coordinates, and `objpoints` will be appended with a copy of it every time I successfully detect all chessboard corners in a test image.  `imagepoints` will be appended with the (x, y) pixel position of each of the corners in the image plane with each successful chessboard detection. In most of the calibrating images there are 48 corners excluding the outer ones so therefore we are looking for (9X6) corners which will stored in imagepoints array.
 
 I then used the output `objpoints` and `imgpoints` to compute the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function.  I applied this distortion correction to the test image using the `cv2.undistort()` function and obtained this result: 
 
@@ -61,13 +61,35 @@ Once I have calibrated the camera I can utilize the calibration matrix (mtx) and
 
 #### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
 
-I used a combination of color and gradient thresholds to generate a binary image (thresholding steps at lines # through # in `another_file.py`).  Here's an example of my output for this step.  (note: this is not actually from one of the test images)
+I have used the following Gradients :
+
+Sobel X Gradient with threshold of (20, 100) and kernel = 21
+
+Sobel Y Gradient with threshold of (20, 100) and kernel = 9
+
+Sobel Magnitude Gradient with threshold of (100,190) and kernel = 9
+
+Sobel Direction Gradient with threshold of (0.7,1.3) and kernel = 19
+
+Combined Gradient Threshold using either X and Y Gradient together along with either Magnitude or direction Gradient
+
+Also Following Color transforms were done using HLS image type :
+
+Threshold of (100,255) was applies on the S channel of HLS image so that it could detect things with high saturation usually lane lines.
+
+Threshold of (120,255) was applied on the light channel of HLS image so that edges due to shadows could be avoided.
+
+Both of the Channels were then combined
+
+Finally Gradient and Color Thresholds were combined using or condition and I was able to plot lane line clearly in most of the cases.
+
+Below is an example of the thresholded image :
 
 ![alt text][image3]
 
 #### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image.
 
-The code for my perspective transform includes a function called `warper()`, which appears in lines 1 through 8 in the file `example.py` (output_images/examples/example.py) (or, for example, in the 3rd code cell of the IPython notebook).  The `warper()` function takes as inputs an image (`img`), as well as source (`src`) and destination (`dst`) points.  I chose the hardcode the source and destination points in the following manner:
+The code for my perspective transform includes a function called `perp_transform()`, which appears cell no. 4 in the file `advanced_lane.ipynb` .  The `perp_transform()` function takes as inputs an image (`img`).  I chose the hardcode the source and destination points for perpective transform in the following manner :
 
 ```python
 src = np.float32(
