@@ -25,7 +25,7 @@ The goals / steps of this project are the following:
 [image4]: ./ThresholdImage.JPG "Color and Gradient Threshold"
 [image5]: ./nottransformed.JPG "Without perspective transform"
 [image6]: ./transformed.JPG "With perspective transform"
-[image7]: ./final_image.JPG "Final MArked Image"
+[image7]: ./final_image.JPG "Final Marked Image"
 [video1]: ./project_video.mp4 "Video"
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -122,7 +122,7 @@ I verified that my perspective transform was working as expected by drawing the 
 
 #### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
 
-After i have got the perspective transform then I used window search algorithm to identify lane line pixels and fit a polynomial of two degree to it the first time. The code is available in cell no. 5 represented  by function `fitpolyfirst()`. It takes the perspectively transformed images as a parameter and return the polynomials of two degree that fit left and right lane. Along with this the function also returns the radius of curvature.
+After I have got the perspective transform then I used window search algorithm to identify lane line pixels and fit a polynomial of two degree to it the first time. The code is available in cell no. 5 represented  by function `fitpolyfirst()`. It takes the perspectively transformed images as a parameter and return the polynomials of two degree that fit left and right lane. Along with this the function also returns the radius of curvature.
 For Video pipeline for the first frame `fitpolyfirst()` will be called after that once we have polynomial fit we dont need to do window search , we just have to search for lines based on the previous polynomial fit adjusting to margin of 100. For doing this we have another function `fitpoly()`.
 
 Below is an output of the visualization of window search :
@@ -144,7 +144,7 @@ I have Calculated the Vehicle center by taking a difference between the image ce
 
 After implementing the pipeline in cell no. 6 which was made specifically for testing the test images it was found that the lane lines were detected clearly. Below is an example of the image with lane line area marked :
 
-![alt text][image6]
+![alt text][image7]
 
 ---
 
